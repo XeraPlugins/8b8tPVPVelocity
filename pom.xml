@@ -70,5 +70,11 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.toml-java</groupId>
+            <artifactId>tomlj-mapper</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+
     </dependencies>
 </project>

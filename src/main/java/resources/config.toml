@@ -1,0 +1,3 @@
+testInteger = 10
+testArray = ["Hello", "World"]
+testString = "Hello World"
