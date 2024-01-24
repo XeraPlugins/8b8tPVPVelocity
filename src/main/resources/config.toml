@@ -1,3 +1,4 @@
 testLong = 10
 testArray = ["Hello", "World"]
 testString = "Hello World"
+testDouble = 69.0

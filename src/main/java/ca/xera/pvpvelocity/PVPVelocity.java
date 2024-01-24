@@ -1,6 +1,7 @@
 package ca.xera.pvpvelocity;
 
 import ca.xera.pvpvelocity.chat.WhisperCommand;
+import ca.xera.pvpvelocity.file.TomlConfig;
 import com.google.inject.Inject;
 import com.moandjiezana.toml.Toml;
 import com.velocitypowered.api.event.Subscribe;
@@ -17,6 +18,7 @@ import org.tomlj.TomlVersion;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
@@ -33,10 +35,13 @@ public class PVPVelocity {
         this.proxy = proxy;
         this.logger = logger;
 
+        // ensure config folder has been generated
+        File dataFolder = new File("plugins/PVPVelocity");
+        if (!dataFolder.exists()) dataFolder.mkdirs();
+
         // toml config test
-        InputStream is = getClass().getResourceAsStream("/config.toml");
-        Toml toml = new Toml().read(is);
-        logger.info(String.format("%s, %s", toml.getString("testString"), toml.getLong("testLong")));
+        TomlConfig config = new TomlConfig(Path.of(dataFolder.getAbsolutePath() + "/config.toml"), getClass().getResourceAsStream("/config.toml"));
+        logger.info(String.format("%s, %s, %s, %s", config.getString("testString"), config.getStringList("testArray"), config.getLong("testLong"), config.getDouble("testDouble")));
     }
 
     @Subscribe
