@@ -1,10 +1,11 @@
 package ca.xera.pvpvelocity.file;
 
 import com.moandjiezana.toml.Toml;
-import com.moandjiezana.toml.TomlWriter;
 import lombok.Getter;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * @author SevJ6
  * READ-ONLY toml configuration
- * */
+ */
 @Getter
 public class TomlConfig {
 

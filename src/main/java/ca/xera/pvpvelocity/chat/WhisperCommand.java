@@ -31,7 +31,8 @@ public class WhisperCommand implements SimpleCommand {
                     target.sendMessage(Component.text(String.format("From %s: %s", source instanceof Player ? ((Player) source).getUsername() : "CONSOLE", message), NamedTextColor.LIGHT_PURPLE));
                 } else source.sendMessage(Component.text("You cannot message yourself!", NamedTextColor.RED));
             } else source.sendMessage(Component.text(String.format("%s is not online!", args[0]), NamedTextColor.RED));
-        } else source.sendMessage(Component.text(String.format("/%s <player> <message>", invocation.alias()), NamedTextColor.RED));
+        } else
+            source.sendMessage(Component.text(String.format("/%s <player> <message>", invocation.alias()), NamedTextColor.RED));
     }
 
     @Override
